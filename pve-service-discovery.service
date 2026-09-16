@@ -1,0 +1,14 @@
+[Unit]
+Description=Discover LXC web services and publish them in Proxmox Notes
+Documentation=https://pve.proxmox.com/pve-docs/pct.1.html
+After=pve-cluster.service pvedaemon.service network-online.target
+Wants=network-online.target
+
+[Service]
+Type=oneshot
+ExecStart=/usr/local/sbin/pve-service-discovery
+Nice=10
+IOSchedulingClass=idle
+
+[Install]
+WantedBy=multi-user.target

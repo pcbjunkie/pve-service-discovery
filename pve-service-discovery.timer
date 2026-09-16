@@ -1,0 +1,12 @@
+[Unit]
+Description=Run Proxmox LXC service discovery every five minutes
+
+[Timer]
+OnBootSec=2min
+OnUnitActiveSec=5min
+RandomizedDelaySec=20s
+Persistent=true
+Unit=pve-service-discovery.service
+
+[Install]
+WantedBy=timers.target
